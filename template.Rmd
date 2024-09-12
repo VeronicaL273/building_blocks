@@ -1,0 +1,40 @@
+---
+title: "template"
+author: "Veronica Liu"
+date: "2024-09-12"
+output: html_document
+---
+```{r}
+library(tidyverse)
+```
+
+I'm an R Markdown document! 
+
+# Section 1
+
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+```{r}
+samp = rnorm(100)
+length(samp)
+```
+
+Here's code to create a histogram
+```{r la_chunk}
+la_df =
+  tibble(
+    norm_samp = rnorm(n = 500, mean=1),
+    samo_g0 = norm_samp > 0,
+    abs_v_samp = abs(norm_samp)
+  )
+
+ggplot(la_df, aes(x = abs_v_samp)) +
+  geom_histogram()
+  
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r mean(samp)`.
